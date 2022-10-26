@@ -1,12 +1,9 @@
 ﻿using UnityEngine;
 
-public abstract class Item : MonoBehaviour, IInteractable
+public abstract class Item : MonoBehaviour
 {
     [SerializeField] private ItemAttributes attributes;
-    public void Act()
-    {
-        return;
-    }
+    public abstract void Act();
 
     public Item getItem()
     {
@@ -16,5 +13,10 @@ public abstract class Item : MonoBehaviour, IInteractable
     public ItemAttributes getAttributes()
     {
         return attributes;
+    }
+
+    public override int GetHashCode()
+    {
+        return attributes.id;
     }
 }

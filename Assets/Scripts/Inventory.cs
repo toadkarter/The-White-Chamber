@@ -9,12 +9,19 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(Item item)
     {
+        if (_inventory.Contains(item)) return;
         _inventory.Add(item);
+        // _selectedItem = item;
+        foreach (var thing in _inventory)
+        {
+            Debug.Log(thing);
+        }
     }
 
     public void RemoveItem(Item item)
     {
         _inventory.Remove(item);
+        SetPreviousItem();
     }
 
     public void SetNextItem()
@@ -28,7 +35,7 @@ public class Inventory : MonoBehaviour
     {
         if (IsEmpty()) return;
         int currentItemIndex = _inventory.IndexOf(_selectedItem);
-        _selectedItem = currentItemIndex - 1 > 0 ? _inventory[_inventory.Count - 1] : _inventory[currentItemIndex - 1];
+        _selectedItem = currentItemIndex - 1 > 0 ? _inventory[currentItemIndex - 1] : _inventory[_inventory.Count - 1];
     }
 
     public Item GetSelectedItem()

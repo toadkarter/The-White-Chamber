@@ -8,8 +8,6 @@ public class Game : MonoBehaviour
     [SerializeField] private Movement player;
     [SerializeField] private UiManager ui;
     [SerializeField] private Inventory inventory;
-
-    private List<Item> _inventory = new List<Item>();
     private bool _isPaused = false;
 
     // Update is called once per frame
@@ -23,6 +21,7 @@ public class Game : MonoBehaviour
 
         player.MoveAndLook();
         CheckForInteractableObjects();
+        CycleThroughInventory();
     }
 
     private void CheckForInteractableObjects()
@@ -47,24 +46,26 @@ public class Game : MonoBehaviour
         ui.ClearText();
     }
     
-    private void EnableInteractionState(IInteractable objectBeingLookedAt)
+    private void EnableInteractionState(Item objectBeingLookedAt)
     {
         ui.TogglePointer(true);
-        if (Input.GetMouseButtonDown(0))
-        {
-            RespondToInteractableObject(objectBeingLookedAt);
-            if (objectBeingLookedAt.getAttributes().canPickUp)
-            {
-                inventory.AddItem(objectBeingLookedAt.getItem());
-            }
-        }
+        if (!Input.GetMouseButtonDown(0)) return;
+        RespondToInteractableObject(objectBeingLookedAt);
         objectBeingLookedAt.Act();
     }
 
-    private void RespondToInteractableObject(IInteractable objectBeingLookedAt)
+    private void CheckIfCanPickUp(Item objectBeingLookedAt)
     {
-        var itemAttributes = objectBeingLookedAt.getAttributes(); 
+        if (!objectBeingLookedAt.getAttributes().canPickUp) return;
+        inventory.AddItem(objectBeingLookedAt.getItem());
+        ui.SetInventoryImage(objectBeingLookedAt.getAttributes().image);
+    }
+
+    private void RespondToInteractableObject(Item item)
+    {
+        var itemAttributes = item.getAttributes(); 
         CheckIfTextProvided(itemAttributes);
+        CheckIfCanPickUp(item); 
     }
 
     private bool CheckIfTextProvided(ItemAttributes itemAttributes)
@@ -83,19 +84,31 @@ public class Game : MonoBehaviour
         ui.DisplayText(text);
     }
 
-    // private bool CheckIfItemCombinationExists(List<Interaction> interactions, ItemAttributes currentItem)
-    // {
-    //     var interactionMap =
-    //         interactions.ToDictionary(interaction => interaction.item, interaction => interaction.response);
-    //
-    //     if (!interactionMap.ContainsKey(currentItem)) return false;
-    //     EnableTextDisplay(interactionMap[currentItem]);
-    //     return true;
-    // }
-
-    private void PickUpItem(ItemAttributes item)
+    private void CycleThroughInventory()
     {
-        
-        
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            inventory.SetNextItem();
+            Debug.Log(inventory.GetSelectedItem());
+            if (inventory.GetSelectedItem() == null) return;
+            ui.SetInventoryImage(inventory.GetSelectedItem().getAttributes().image);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            inventory.SetPreviousItem();
+            if (inventory.GetSelectedItem() == null) return;
+            ui.SetInventoryImage(inventory.GetSelectedItem().getAttributes().image);
+        }
+    }
+
+    private bool CheckIfItemCombinationExists(IEnumerable<Interaction> interactions, ItemAttributes currentItem)
+    {
+        var interactionMap =
+            interactions.ToDictionary(interaction => interaction.item.getAttributes().id, interaction => interaction.response);
+    
+        if (!interactionMap.ContainsKey(currentItem.id)) return false;
+        EnableTextDisplay(interactionMap[currentItem.id]);
+        return true;
     }
 }

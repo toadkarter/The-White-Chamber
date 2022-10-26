@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PickUpItem : Item
 {
-    public new void Act()
+    public override void Act()
     {
-        Destroy(this);
+        gameObject.SetActive(false);
     }
 }
