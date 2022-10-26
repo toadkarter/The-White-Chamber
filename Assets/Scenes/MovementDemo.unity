@@ -924,7 +924,7 @@ GameObject:
   - component: {fileID: 359895435}
   - component: {fileID: 359895434}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Cursor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
