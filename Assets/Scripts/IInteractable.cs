@@ -1,4 +1,7 @@
-﻿public interface IInteractable
+﻿using UnityEngine;
+
+public interface IInteractable
 {
-    ItemResponse Act();
+    void Act();
+    ItemAttributes getAttributes();
 }

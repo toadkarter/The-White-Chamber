@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca9c7f0e0d9d1bc4393a60d6c9b5a687, type: 3}
   m_Name: AppleItemResponse
   m_EditorClassIdentifier: 
-  examineMessage: Hello! This is an apple. This is also some additional text - we
-    are basically testing the capability of my engine to display more text than fits
-    on the screen.
+  interactions: []
+  examineMessage: You have picked up the apple.

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Game : MonoBehaviour
@@ -7,13 +8,8 @@ public class Game : MonoBehaviour
     [SerializeField] private Movement player;
     [SerializeField] private UiManager ui;
 
+    private List<Item> _inventory = new List<Item>();
     private bool _isPaused = false;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     private void Update()
@@ -21,11 +17,7 @@ public class Game : MonoBehaviour
         if (_isPaused)
         {
             if (!Input.GetMouseButtonDown(0)) return;
-            _isPaused = false;
-            player.SetCanMove(true);
-            ui.SetCursorIsVisible(true);
-            ui.ToggleTextPanel(false);
-            ui.ClearText();
+            ContinueGame();
         }
 
         player.MoveAndLook();
@@ -41,6 +33,15 @@ public class Game : MonoBehaviour
         }
     }
 
+    private void ContinueGame()
+    {
+        _isPaused = false;
+        player.SetCanMove(true);
+        ui.SetCursorIsVisible(true);
+        ui.ToggleTextPanel(false);
+        ui.ClearText();
+    }
+    
     private void EnableInteractionState(IInteractable objectBeingLookedAt)
     {
         ui.TogglePointer(true);
@@ -52,15 +53,41 @@ public class Game : MonoBehaviour
 
     private void RespondToInteractableObject(IInteractable objectBeingLookedAt)
     {
-        var itemResponse = objectBeingLookedAt.Act();
-        if (itemResponse.examineMessage != null)
-        {
-            player.SetCanMove(false);
-            ui.SetCursorIsVisible(false);
-            ui.ToggleTextPanel(true);
-            ui.DisplayText(itemResponse.examineMessage);
+        var item = objectBeingLookedAt;
+        item.Act();
+        var itemAttributes = item.getAttributes(); 
+        CheckIfTextProvided(itemAttributes);
+    }
 
-            _isPaused = true;
-        }
+    private bool CheckIfTextProvided(ItemAttributes itemAttributes)
+    {
+        if (itemAttributes.examineMessage == null) return false;
+        EnableTextDisplay(itemAttributes.examineMessage);
+        _isPaused = true;
+        return true;
+    }
+
+    private void EnableTextDisplay(string text)
+    {
+        player.SetCanMove(false);
+        ui.SetCursorIsVisible(false);
+        ui.ToggleTextPanel(true);
+        ui.DisplayText(text);
+    }
+
+    // private bool CheckIfItemCombinationExists(List<Interaction> interactions, ItemAttributes currentItem)
+    // {
+    //     var interactionMap =
+    //         interactions.ToDictionary(interaction => interaction.item, interaction => interaction.response);
+    //
+    //     if (!interactionMap.ContainsKey(currentItem)) return false;
+    //     EnableTextDisplay(interactionMap[currentItem]);
+    //     return true;
+    // }
+
+    private void PickUpItem(ItemAttributes item)
+    {
+        
+        
     }
 }

@@ -1,13 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Item : MonoBehaviour, IInteractable
 {
-    [SerializeField] private ItemResponse itemResponse = null;
-
-    public ItemResponse Act()
+    [SerializeField] private ItemAttributes attributes;
+    public void Act()
     {
-        return itemResponse;
+        return;
+    }
+
+    public ItemAttributes getAttributes()
+    {
+        return attributes;
     }
 }
