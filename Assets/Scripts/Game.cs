@@ -21,12 +21,21 @@ public class Game : MonoBehaviour
             ui.togglePointer(true);
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("Clicked the item");
+                RespondToInteractableObject(objectBeingLookedAt);
             }
         }
         else
         {
             ui.togglePointer(false);
+        }
+    }
+
+    private static void RespondToInteractableObject(IInteractable objectBeingLookedAt)
+    {
+        var itemResponse = objectBeingLookedAt.Act();
+        if (itemResponse.examineMessage != null)
+        {
+            Debug.Log(itemResponse.examineMessage);
         }
     }
 }

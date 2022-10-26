@@ -2,17 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public class Item : MonoBehaviour, IInteractable
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private ItemResponse itemResponse = null;
 
-    // Update is called once per frame
-    void Update()
+    public ItemResponse Act()
     {
-        
+        return itemResponse;
     }
 }

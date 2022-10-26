@@ -47,10 +47,10 @@ public class Movement : MonoBehaviour
         _playerBody.transform.Rotate(Vector3.up * mouseX);
     }
 
-    public Item getObjectBeingLookedAt()
+    public IInteractable getObjectBeingLookedAt()
     {
         var ray = _playerCamera.ScreenPointToRay(Input.mousePosition);
-        return !Physics.Raycast(ray, out var hit) ? null : hit.transform.GetComponent<Item>();
+        return !Physics.Raycast(ray, out var hit) ? null : hit.transform.GetComponent<IInteractable>();
     }
 
     public void SetCanMove(bool canMove)

@@ -2245,7 +2245,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2471434266851210281, guid: 0837d45161aff3946a4c5f87726c1ede, type: 3}
   m_PrefabInstance: {fileID: 849622014}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &849622016
+--- !u!114 &849622017
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2257,6 +2257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60410869e3070774697bc2ffa7567490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemResponse: {fileID: 11400000, guid: f38ee29204060fd428cd1603f8233c9f, type: 2}
 --- !u!64 &849622018
 MeshCollider:
   m_ObjectHideFlags: 0
