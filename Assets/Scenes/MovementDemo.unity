@@ -2257,7 +2257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60410869e3070774697bc2ffa7567490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemResponse: {fileID: 11400000, guid: f38ee29204060fd428cd1603f8233c9f, type: 2}
+  attributes: {fileID: 11400000, guid: f38ee29204060fd428cd1603f8233c9f, type: 2}
 --- !u!64 &849622018
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2427,6 +2427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1243716960}
   ui: {fileID: 1987166183}
+  inventory: {fileID: 1243716961}
 --- !u!4 &874474096
 Transform:
   m_ObjectHideFlags: 0
@@ -3567,6 +3568,7 @@ GameObject:
   - component: {fileID: 1243716959}
   - component: {fileID: 1243716958}
   - component: {fileID: 1243716960}
+  - component: {fileID: 1243716961}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3621,6 +3623,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 12
   mouseSensitivity: 100
+--- !u!114 &1243716961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243716957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3cbcb137782a07478baad0ac9b1da0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1356124985
 PrefabInstance:
   m_ObjectHideFlags: 0

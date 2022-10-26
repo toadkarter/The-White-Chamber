@@ -7,6 +7,7 @@ public class Game : MonoBehaviour
 {
     [SerializeField] private Movement player;
     [SerializeField] private UiManager ui;
+    [SerializeField] private Inventory inventory;
 
     private List<Item> _inventory = new List<Item>();
     private bool _isPaused = false;
@@ -21,7 +22,11 @@ public class Game : MonoBehaviour
         }
 
         player.MoveAndLook();
-        
+        CheckForInteractableObjects();
+    }
+
+    private void CheckForInteractableObjects()
+    {
         var objectBeingLookedAt = player.GetObjectBeingLookedAt();
         if (objectBeingLookedAt != null)
         {
@@ -48,14 +53,17 @@ public class Game : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             RespondToInteractableObject(objectBeingLookedAt);
+            if (objectBeingLookedAt.getAttributes().canPickUp)
+            {
+                inventory.AddItem(objectBeingLookedAt.getItem());
+            }
         }
+        objectBeingLookedAt.Act();
     }
 
     private void RespondToInteractableObject(IInteractable objectBeingLookedAt)
     {
-        var item = objectBeingLookedAt;
-        item.Act();
-        var itemAttributes = item.getAttributes(); 
+        var itemAttributes = objectBeingLookedAt.getAttributes(); 
         CheckIfTextProvided(itemAttributes);
     }
 

@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactions: []
   examineMessage: You have picked up the apple.
+  canPickUp: 1
