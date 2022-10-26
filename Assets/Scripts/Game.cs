@@ -15,6 +15,8 @@ public class Game : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        player.MoveAndLook();
+        
         var objectBeingLookedAt = player.GetObjectBeingLookedAt();
         if (objectBeingLookedAt != null)
         {
@@ -40,9 +42,13 @@ public class Game : MonoBehaviour
         var itemResponse = objectBeingLookedAt.Act();
         if (itemResponse.examineMessage != null)
         {
-            // player.SetCanMove(false);
+            player.SetCanMove(false);
+            ui.SetCursorIsVisible(false);
             ui.ToggleTextPanel(true);
             ui.DisplayText(itemResponse.examineMessage);
+            // player.SetCanMove(true);
+            // ui.ToggleTextPanel(false);
+            // ui.ClearText();
         }
     }
 }

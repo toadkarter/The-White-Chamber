@@ -7,6 +7,8 @@ public class Movement : MonoBehaviour
     private float _xRotation = 0f;
     private bool _canMove = true;
 
+    public bool CanMove => _canMove;
+
     [SerializeField] private float speed = 12f;
     [SerializeField] private float mouseSensitivity = 100f;
     
@@ -17,8 +19,8 @@ public class Movement : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
     }
-    
-    private void Update()
+
+    public void MoveAndLook()
     {
         if (!_canMove) return;
         Move();

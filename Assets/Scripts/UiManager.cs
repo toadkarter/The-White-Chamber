@@ -15,7 +15,7 @@ public class UiManager : MonoBehaviour
 
     private void Start()
     {
-        textPanel.enabled = _textPanelEnabled;
+        textPanel.gameObject.SetActive(_textPanelEnabled);
     }
 
     public void TogglePointer(bool on)
@@ -25,7 +25,7 @@ public class UiManager : MonoBehaviour
 
     public void ToggleTextPanel(bool on)
     {
-        textPanel.enabled = @on;
+        textPanel.gameObject.SetActive(@on);
     }
 
     public void DisplayText(string text)
@@ -36,5 +36,10 @@ public class UiManager : MonoBehaviour
     public void ClearText()
     {
         textPanel.ClearText();
+    }
+
+    public void SetCursorIsVisible(bool on)
+    {
+        pointer.gameObject.SetActive(@on);
     }
 }
