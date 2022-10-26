@@ -15,8 +15,8 @@ public class UiManager : MonoBehaviour
         _pointer = GetComponentInChildren<Image>();
     }
 
-    public void togglePointer()
+    public void togglePointer(bool on)
     {
-        _pointer.color = _pointer.color == _offColor ? _onColor : _offColor;
+        _pointer.color = @on ? _onColor : _offColor;
     }
 }

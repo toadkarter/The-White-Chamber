@@ -41,10 +41,17 @@ public class Movement : MonoBehaviour
 
         _xRotation -= mouseY;
         _xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
-        
+
         _playerCamera.transform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
 
         _playerBody.transform.Rotate(Vector3.up * mouseX);
+    }
+
+    public Item getObjectBeingLookedAt()
+    {
+        var ray = _playerCamera.ScreenPointToRay(Input.mousePosition);
+        Debug.Log(ray);
+        return !Physics.Raycast(ray, out var hit) ? null : hit.transform.GetComponent<Item>();
     }
 
     public void SetCanMove(bool canMove)
