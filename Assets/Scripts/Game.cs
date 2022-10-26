@@ -6,6 +6,9 @@ public class Game : MonoBehaviour
 {
     [SerializeField] private Movement player;
     [SerializeField] private UiManager ui;
+
+    private bool _isPaused = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +18,16 @@ public class Game : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (_isPaused)
+        {
+            if (!Input.GetMouseButtonDown(0)) return;
+            _isPaused = false;
+            player.SetCanMove(true);
+            ui.SetCursorIsVisible(true);
+            ui.ToggleTextPanel(false);
+            ui.ClearText();
+        }
+
         player.MoveAndLook();
         
         var objectBeingLookedAt = player.GetObjectBeingLookedAt();
@@ -46,9 +59,8 @@ public class Game : MonoBehaviour
             ui.SetCursorIsVisible(false);
             ui.ToggleTextPanel(true);
             ui.DisplayText(itemResponse.examineMessage);
-            // player.SetCanMove(true);
-            // ui.ToggleTextPanel(false);
-            // ui.ClearText();
+
+            _isPaused = true;
         }
     }
 }
