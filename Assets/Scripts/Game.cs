@@ -13,10 +13,20 @@ public class Game : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         var objectBeingLookedAt = player.getObjectBeingLookedAt();
-        Debug.Log(objectBeingLookedAt);
-        ui.togglePointer(objectBeingLookedAt != null);
+        if (objectBeingLookedAt != null)
+        {
+            ui.togglePointer(true);
+            if (Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("Clicked the item");
+            }
+        }
+        else
+        {
+            ui.togglePointer(false);
+        }
     }
 }

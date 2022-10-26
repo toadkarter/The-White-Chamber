@@ -50,7 +50,6 @@ public class Movement : MonoBehaviour
     public Item getObjectBeingLookedAt()
     {
         var ray = _playerCamera.ScreenPointToRay(Input.mousePosition);
-        Debug.Log(ray);
         return !Physics.Raycast(ray, out var hit) ? null : hit.transform.GetComponent<Item>();
     }
 
