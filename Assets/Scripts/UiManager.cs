@@ -1,22 +1,40 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
-    private Image _pointer = null;
+    [SerializeField] private Image pointer = null;
     private readonly Color _onColor = Color.red;
     private readonly Color _offColor = Color.white;
-    
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField] private TextPanel textPanel = null;
+    private bool _textPanelEnabled = false;
+
+    private void Start()
     {
-        _pointer = GetComponentInChildren<Image>();
+        textPanel.enabled = _textPanelEnabled;
     }
 
-    public void togglePointer(bool on)
+    public void TogglePointer(bool on)
     {
-        _pointer.color = @on ? _onColor : _offColor;
+        pointer.color = @on ? _onColor : _offColor;
+    }
+
+    public void ToggleTextPanel(bool on)
+    {
+        textPanel.enabled = @on;
+    }
+
+    public void DisplayText(string text)
+    {
+        textPanel.SetText(text);
+    }
+
+    public void ClearText()
+    {
+        textPanel.ClearText();
     }
 }

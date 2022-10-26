@@ -47,7 +47,7 @@ public class Movement : MonoBehaviour
         _playerBody.transform.Rotate(Vector3.up * mouseX);
     }
 
-    public IInteractable getObjectBeingLookedAt()
+    public IInteractable GetObjectBeingLookedAt()
     {
         var ray = _playerCamera.ScreenPointToRay(Input.mousePosition);
         return !Physics.Raycast(ray, out var hit) ? null : hit.transform.GetComponent<IInteractable>();

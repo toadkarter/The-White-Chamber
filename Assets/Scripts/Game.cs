@@ -15,27 +15,34 @@ public class Game : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        var objectBeingLookedAt = player.getObjectBeingLookedAt();
+        var objectBeingLookedAt = player.GetObjectBeingLookedAt();
         if (objectBeingLookedAt != null)
         {
-            ui.togglePointer(true);
-            if (Input.GetMouseButtonDown(0))
-            {
-                RespondToInteractableObject(objectBeingLookedAt);
-            }
+            EnableInteractionState(objectBeingLookedAt);
         }
         else
         {
-            ui.togglePointer(false);
+            ui.TogglePointer(false);
         }
     }
 
-    private static void RespondToInteractableObject(IInteractable objectBeingLookedAt)
+    private void EnableInteractionState(IInteractable objectBeingLookedAt)
+    {
+        ui.TogglePointer(true);
+        if (Input.GetMouseButtonDown(0))
+        {
+            RespondToInteractableObject(objectBeingLookedAt);
+        }
+    }
+
+    private void RespondToInteractableObject(IInteractable objectBeingLookedAt)
     {
         var itemResponse = objectBeingLookedAt.Act();
         if (itemResponse.examineMessage != null)
         {
-            Debug.Log(itemResponse.examineMessage);
+            // player.SetCanMove(false);
+            ui.ToggleTextPanel(true);
+            ui.DisplayText(itemResponse.examineMessage);
         }
     }
 }
