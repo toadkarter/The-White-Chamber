@@ -8,7 +8,7 @@ public class StatefulItem : Item
     private int currentState = 0;
     
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         SetAttributes(states[currentState]);
     }
@@ -20,7 +20,7 @@ public class StatefulItem : Item
 
     public override void AdvanceState(int id)
     {
-        if (!(currentState < states.Count && getAttributes().stateAdvancerIds.Contains(id))) return;
+        if (currentState + 1 >= states.Count && !getAttributes().stateAdvancerIds.Contains(id)) return;
         currentState++;
         SetAttributes(states[currentState]);
     }

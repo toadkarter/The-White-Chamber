@@ -38,7 +38,7 @@ public class Inventory : MonoBehaviour
     {
         if (IsEmpty()) return;
         int currentItemIndex = _inventory.IndexOf(_selectedItem);
-        _selectedItem = currentItemIndex - 1 > 0 ? _inventory[currentItemIndex - 1] : _inventory[_inventory.Count - 1];
+        _selectedItem = currentItemIndex - 1 >= 0 ? _inventory[currentItemIndex - 1] : _inventory[_inventory.Count - 1];
     }
 
     public Item GetSelectedItem()

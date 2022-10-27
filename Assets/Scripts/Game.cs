@@ -9,6 +9,7 @@ public class Game : MonoBehaviour
     [SerializeField] private UiManager ui;
     [SerializeField] private Inventory inventory;
     [SerializeField] private LightPuzzle puzzle;
+    [SerializeField] private List<Item> allItems = new List<Item>();
     private bool _isPaused = false;
     
     private void Update()
@@ -65,14 +66,13 @@ public class Game : MonoBehaviour
     {
         var itemAttributes = item.getAttributes();
         if (itemAttributes == null) return;
-        if (inventory.NothingSelected())
+        CheckIfTextProvided(itemAttributes);
+        CheckIfCanPickUp(item);
+        
+        if (!inventory.NothingSelected())
         {
-            CheckIfTextProvided(itemAttributes);
-            CheckIfCanPickUp(item);
-        }
-        else
-        {
-            CheckIfItemCombinationExists(itemAttributes.interactions, inventory.GetSelectedItem());
+            CheckIfItemCombinationExists(item, inventory.GetSelectedItem());
+
         }
     }
 
@@ -109,15 +109,15 @@ public class Game : MonoBehaviour
         }
     }
 
-    private bool CheckIfItemCombinationExists(IEnumerable<Interaction> interactions, Item currentItem)
+    private bool CheckIfItemCombinationExists(Item currentItem, Item inventoryItem)
     {
         var currentAttributes = currentItem.getAttributes();
         var interactionMap =
-            interactions.ToDictionary(interaction => interaction.itemId, interaction => interaction.response);
+            currentAttributes.interactions.ToDictionary(interaction => interaction.itemId, interaction => interaction.response);
         
-        if (!interactionMap.ContainsKey(currentAttributes.id)) return false;
-        EnableTextDisplay(interactionMap[currentAttributes.id]);
-        currentItem.AdvanceState(currentAttributes.id);
+        if (!interactionMap.ContainsKey(inventoryItem.getAttributes().id)) return false;
+        EnableTextDisplay(interactionMap[inventoryItem.getAttributes().id]);
+        currentItem.AdvanceState(inventoryItem.getAttributes().id);
         _isPaused = true;
         return true;
     }
