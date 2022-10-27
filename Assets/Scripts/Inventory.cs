@@ -11,11 +11,7 @@ public class Inventory : MonoBehaviour
     {
         if (_inventory.Contains(item)) return;
         _inventory.Add(item);
-        // _selectedItem = item;
-        foreach (var thing in _inventory)
-        {
-            Debug.Log(thing);
-        }
+        _selectedItem = item;
     }
 
     public void RemoveItem(Item item)

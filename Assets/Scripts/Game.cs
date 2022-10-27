@@ -9,8 +9,7 @@ public class Game : MonoBehaviour
     [SerializeField] private UiManager ui;
     [SerializeField] private Inventory inventory;
     private bool _isPaused = false;
-
-    // Update is called once per frame
+    
     private void Update()
     {
         if (_isPaused)
@@ -18,7 +17,6 @@ public class Game : MonoBehaviour
             if (!Input.GetMouseButtonDown(0)) return;
             ContinueGame();
         }
-
         player.MoveAndLook();
         CheckForInteractableObjects();
         CycleThroughInventory();
@@ -65,7 +63,10 @@ public class Game : MonoBehaviour
     {
         var itemAttributes = item.getAttributes(); 
         CheckIfTextProvided(itemAttributes);
-        CheckIfCanPickUp(item); 
+        CheckIfCanPickUp(item);
+        var selectedItem = inventory.GetSelectedItem();
+        if (selectedItem == null) return;
+        CheckIfItemCombinationExists(itemAttributes.interactions, inventory.GetSelectedItem().getAttributes());
     }
 
     private bool CheckIfTextProvided(ItemAttributes itemAttributes)
@@ -89,7 +90,6 @@ public class Game : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             inventory.SetNextItem();
-            Debug.Log(inventory.GetSelectedItem());
             if (inventory.GetSelectedItem() == null) return;
             ui.SetInventoryImage(inventory.GetSelectedItem().getAttributes().image);
         }
@@ -104,9 +104,11 @@ public class Game : MonoBehaviour
 
     private bool CheckIfItemCombinationExists(IEnumerable<Interaction> interactions, ItemAttributes currentItem)
     {
+        Debug.Log(currentItem.id);
         var interactionMap =
-            interactions.ToDictionary(interaction => interaction.item.getAttributes().id, interaction => interaction.response);
+            interactions.ToDictionary(interaction => interaction.itemId, interaction => interaction.response);
     
+        Debug.Log(interactionMap);
         if (!interactionMap.ContainsKey(currentItem.id)) return false;
         EnableTextDisplay(interactionMap[currentItem.id]);
         return true;

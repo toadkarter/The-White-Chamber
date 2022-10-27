@@ -3,6 +3,6 @@
 [Serializable]
 public struct Interaction
 {
-    public Item item;
+    public int itemId;
     public string response;
 }
