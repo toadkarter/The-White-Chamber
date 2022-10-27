@@ -62,6 +62,7 @@ public class Game : MonoBehaviour
     private void RespondToInteractableObject(Item item)
     {
         var itemAttributes = item.getAttributes();
+        if (itemAttributes == null) return;
         if (inventory.NothingSelected())
         {
             CheckIfTextProvided(itemAttributes);
