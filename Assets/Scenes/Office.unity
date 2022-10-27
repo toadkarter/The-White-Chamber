@@ -1812,6 +1812,7 @@ MonoBehaviour:
   - {fileID: 512002969}
   - {fileID: 1094763728}
   bookShelf: {fileID: 1261022314}
+  bookShelfSpeed: 1
 --- !u!4 &632728884
 Transform:
   m_ObjectHideFlags: 0

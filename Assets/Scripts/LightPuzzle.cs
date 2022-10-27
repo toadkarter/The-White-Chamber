@@ -7,9 +7,12 @@ public class LightPuzzle : MonoBehaviour
 {
     [SerializeField] private List<LightItem> lamps = new List<LightItem>();
     [SerializeField] private Transform bookShelf;
-    private List<int> _order = new List<int> {2, 1, 3, 4};
+    [SerializeField] private float bookShelfSpeed = 1.0f;
+    private readonly List<int> _order = new List<int> {2, 1, 3, 4};
     private bool _onCorrectPath = false;
     private int currentLitLamps = 0;
+    private bool bookShelfMoved = false;
+    private Vector3 bookshelfOpenPosition = new Vector3(3.6f, 0f, 2.6f);
 
     private bool AllLampsOff()
     {
@@ -34,7 +37,18 @@ public class LightPuzzle : MonoBehaviour
 
     public void PlayPuzzle()
     {
-        if (PuzzleSolved()) { return; }
+        if (PuzzleSolved())
+        {
+            if (!bookShelfMoved)
+            {
+                MoveBookshelf();
+            }
+            else
+            {
+                return;
+                
+            }
+        }
         if (AllLampsOff()) {_onCorrectPath = true;}
         if (!_onCorrectPath && !AllLampsOff()) { return; }
         
@@ -50,12 +64,10 @@ public class LightPuzzle : MonoBehaviour
             currentLitLamps = numberOfLitLamps;
             return;
         }
-
-        Debug.Log("Comparing lamps");
+        
         currentLitLamps = numberOfLitLamps;
         for (var i = 0; i < currentLitLamps; i++)
         {
-            Debug.Log(i);
             if (!LampWithIdIsOn(_order[i]))
             {
                 _onCorrectPath = false;
@@ -79,5 +91,12 @@ public class LightPuzzle : MonoBehaviour
     {
         if (!(_onCorrectPath && AllLampsOn())) return false;
         return true;
+    }
+
+    private void MoveBookshelf()
+    {
+        var step = bookShelfSpeed * Time.deltaTime;
+        bookShelf.transform.position = 
+            Vector3.MoveTowards(bookShelf.transform.position, bookshelfOpenPosition, step);
     }
 }
