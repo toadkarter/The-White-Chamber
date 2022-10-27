@@ -10,4 +10,5 @@ public class ItemAttributes : ScriptableObject
     public List<Interaction> interactions;
     public string examineMessage;
     public bool canPickUp;
+    public List<int> stateAdvancerIds;
 }

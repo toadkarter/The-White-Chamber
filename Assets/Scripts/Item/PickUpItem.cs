@@ -8,4 +8,9 @@ public class PickUpItem : Item
     {
         gameObject.SetActive(false);
     }
+
+    public override void AdvanceState(int id)
+    {
+        return;
+    }
 }

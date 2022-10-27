@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9c7f0e0d9d1bc4393a60d6c9b5a687, type: 3}
+  m_Name: ComputerLocked
+  m_EditorClassIdentifier: 
+  image: {fileID: 0}
+  id: 2
+  interactions:
+  - itemId: 1
+    response: 'You use the ID card on the computer and it hums to life. The screen
+      displays four digits: "2 1 3 4"'
+  examineMessage: It's an old computer - kind of dusty. You can't seem to turn it
+    on, and there's a magnetic strip under the screen...
+  canPickUp: 0
+  stateAdvancerIds: 01000000

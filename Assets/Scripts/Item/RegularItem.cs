@@ -8,4 +8,9 @@ public class RegularItem : Item
     {
         Debug.Log("Nothing happens");
     }
+
+    public override void AdvanceState(int id)
+    {
+        Debug.Log("Nothing happens");
+    }
 }

@@ -19,4 +19,10 @@ public abstract class Item : MonoBehaviour
     {
         return attributes.id;
     }
+    protected void SetAttributes(ItemAttributes attribute)
+    {
+        this.attributes = attribute;
+    }
+
+    public abstract void AdvanceState(int id);
 }

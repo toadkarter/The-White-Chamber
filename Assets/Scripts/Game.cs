@@ -72,7 +72,7 @@ public class Game : MonoBehaviour
         }
         else
         {
-            CheckIfItemCombinationExists(itemAttributes.interactions, inventory.GetSelectedItem().getAttributes());
+            CheckIfItemCombinationExists(itemAttributes.interactions, inventory.GetSelectedItem());
         }
     }
 
@@ -109,13 +109,15 @@ public class Game : MonoBehaviour
         }
     }
 
-    private bool CheckIfItemCombinationExists(IEnumerable<Interaction> interactions, ItemAttributes currentItem)
+    private bool CheckIfItemCombinationExists(IEnumerable<Interaction> interactions, Item currentItem)
     {
+        var currentAttributes = currentItem.getAttributes();
         var interactionMap =
             interactions.ToDictionary(interaction => interaction.itemId, interaction => interaction.response);
         
-        if (!interactionMap.ContainsKey(currentItem.id)) return false;
-        EnableTextDisplay(interactionMap[currentItem.id]);
+        if (!interactionMap.ContainsKey(currentAttributes.id)) return false;
+        EnableTextDisplay(interactionMap[currentAttributes.id]);
+        currentItem.AdvanceState(currentAttributes.id);
         _isPaused = true;
         return true;
     }

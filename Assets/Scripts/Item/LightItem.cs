@@ -22,6 +22,11 @@ public class LightItem : Item
         ToggleLight();
     }
 
+    public override void AdvanceState(int id)
+    {
+        Debug.Log("Nothing happens");
+    }
+
     public bool IsOn()
     {
         return Math.Abs(_light.intensity - OnValue) < 0.01;

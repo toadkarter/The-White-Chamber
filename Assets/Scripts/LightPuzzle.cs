@@ -89,13 +89,12 @@ public class LightPuzzle : MonoBehaviour
 
     private bool PuzzleSolved()
     {
-        if (!(_onCorrectPath && AllLampsOn())) return false;
-        return true;
+        return _onCorrectPath && AllLampsOn();
     }
 
     private void MoveBookshelf()
     {
-        var step = bookShelfSpeed * Time.deltaTime;
+        float step = bookShelfSpeed * Time.deltaTime;
         bookShelf.transform.position = 
             Vector3.MoveTowards(bookShelf.transform.position, bookshelfOpenPosition, step);
     }
