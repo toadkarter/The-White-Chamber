@@ -8,6 +8,7 @@ public class Game : MonoBehaviour
     [SerializeField] private Movement player;
     [SerializeField] private UiManager ui;
     [SerializeField] private Inventory inventory;
+    [SerializeField] private LightPuzzle puzzle;
     private bool _isPaused = false;
     
     private void Update()
@@ -20,6 +21,7 @@ public class Game : MonoBehaviour
         player.MoveAndLook();
         CheckForInteractableObjects();
         CycleThroughInventory();
+        puzzle.PlayPuzzle();
     }
 
     private void CheckForInteractableObjects()

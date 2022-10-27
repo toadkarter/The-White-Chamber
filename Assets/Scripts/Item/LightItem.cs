@@ -5,15 +5,16 @@ using UnityEngine;
 
 public class LightItem : Item
 {
+    [SerializeField] private int id = 0;
     private Light _light = null;
-    private const int _onValue = 10;
-    private const int _offValue = 0;
+    private const int OnValue = 10;
+    private const int OffValue = 0;
     
     // Start is called before the first frame update
     private void Start()
     {
         _light = GetComponentInChildren<Light>();
-        _light.intensity = _offValue;
+        _light.intensity = OffValue;
     }
 
     public override void Act()
@@ -23,11 +24,16 @@ public class LightItem : Item
 
     public bool IsOn()
     {
-        return Math.Abs(_light.intensity - _onValue) < 0.01;
+        return Math.Abs(_light.intensity - OnValue) < 0.01;
     }
 
     private void ToggleLight()
     {
-        _light.intensity = IsOn() ? _offValue : _onValue;
-    } 
+        _light.intensity = IsOn() ? OffValue : OnValue;
+    }
+
+    public int GetId()
+    {
+        return id;
+    }
 }
