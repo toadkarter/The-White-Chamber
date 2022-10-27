@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,12 @@ public class Inventory : MonoBehaviour
 {
     private readonly List<Item> _inventory = new List<Item>();
     private Item _selectedItem;
+    [SerializeField] private Item defaultInventoryItem = null;
+
+    private void Start()
+    {
+        _selectedItem = defaultInventoryItem;
+    }
 
     public void AddItem(Item item)
     {
@@ -37,6 +44,11 @@ public class Inventory : MonoBehaviour
     public Item GetSelectedItem()
     {
         return IsEmpty() ? null : _selectedItem;
+    }
+
+    public bool NothingSelected()
+    {
+        return _selectedItem.getAttributes().id == 0;
     }
     
     private bool IsEmpty()

@@ -61,12 +61,16 @@ public class Game : MonoBehaviour
 
     private void RespondToInteractableObject(Item item)
     {
-        var itemAttributes = item.getAttributes(); 
-        CheckIfTextProvided(itemAttributes);
-        CheckIfCanPickUp(item);
-        var selectedItem = inventory.GetSelectedItem();
-        if (selectedItem == null) return;
-        CheckIfItemCombinationExists(itemAttributes.interactions, inventory.GetSelectedItem().getAttributes());
+        var itemAttributes = item.getAttributes();
+        if (inventory.NothingSelected())
+        {
+            CheckIfTextProvided(itemAttributes);
+            CheckIfCanPickUp(item);
+        }
+        else
+        {
+            CheckIfItemCombinationExists(itemAttributes.interactions, inventory.GetSelectedItem().getAttributes());
+        }
     }
 
     private bool CheckIfTextProvided(ItemAttributes itemAttributes)
@@ -104,13 +108,12 @@ public class Game : MonoBehaviour
 
     private bool CheckIfItemCombinationExists(IEnumerable<Interaction> interactions, ItemAttributes currentItem)
     {
-        Debug.Log(currentItem.id);
         var interactionMap =
             interactions.ToDictionary(interaction => interaction.itemId, interaction => interaction.response);
-    
-        Debug.Log(interactionMap);
+        
         if (!interactionMap.ContainsKey(currentItem.id)) return false;
         EnableTextDisplay(interactionMap[currentItem.id]);
+        _isPaused = true;
         return true;
     }
 }

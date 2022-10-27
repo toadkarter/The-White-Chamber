@@ -3742,6 +3742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3cbcb137782a07478baad0ac9b1da0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultInventoryItem: {fileID: 1906726202}
 --- !u!1001 &1356124985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4942,6 +4943,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3042016231070954709, guid: a55c555f579cc3647bf8aaf8116217a9, type: 3}
   m_PrefabInstance: {fileID: 1900079135}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1906726201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1906726203}
+  - component: {fileID: 1906726202}
+  m_Layer: 0
+  m_Name: DefaultInventoryItem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1906726202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906726201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d79e657069589247b1d84d232c5e446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attributes: {fileID: 11400000, guid: 7fb03fef1b8dc574fa6b72b559b5f005, type: 2}
+--- !u!4 &1906726203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906726201}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.1218154, y: 0.13661483, z: 2.3151684}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1915634812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5120,7 +5165,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointer: {fileID: 359895434}
   inventory: {fileID: 1082367384}
-  defaultInventoryImage: {fileID: 0}
   textPanel: {fileID: 1710536913}
 --- !u!1001 &2083125612
 PrefabInstance:

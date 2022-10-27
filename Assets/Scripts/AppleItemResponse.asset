@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AppleItemResponse
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 9a651e7bdde0df8478b37cbc0db0a246, type: 3}
-  id: 0
+  id: 2
   interactions:
   - itemId: 1
     response: We are interacting with the orange from apple
