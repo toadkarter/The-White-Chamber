@@ -9,7 +9,6 @@ public class Game : MonoBehaviour
     [SerializeField] private UiManager ui;
     [SerializeField] private Inventory inventory;
     [SerializeField] private LightPuzzle puzzle;
-    [SerializeField] private List<Item> allItems = new List<Item>();
     private bool _isPaused = false;
     
     private void Update()
