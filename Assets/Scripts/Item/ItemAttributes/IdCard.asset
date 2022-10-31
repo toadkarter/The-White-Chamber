@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: IdCard
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 3b6321b8c51b05f4c80049b6bd4700b4, type: 3}
-  id: 1
+  id: 7
   interactions: []
   examineMessage: It seems to be some kind of magnetic keycard... Could be useful.
     I'll take it with me.
   canPickUp: 1
+  stateAdvancerIds: 

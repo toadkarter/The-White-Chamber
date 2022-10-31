@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Scanner
   m_EditorClassIdentifier: 
   image: {fileID: 0}
-  id: 6
+  id: 10
   interactions: []
   examineMessage: It's a fingerprint scanner - mine don't seem to match.
   canPickUp: 0

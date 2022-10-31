@@ -1,7 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
@@ -9,8 +12,16 @@ public class Game : MonoBehaviour
     [SerializeField] private UiManager ui;
     [SerializeField] private Inventory inventory;
     [SerializeField] private LightPuzzle puzzle;
+    [SerializeField] private TextMeshProUGUI title;
+    [SerializeField] private int delay = 8;
     private bool _isPaused = false;
-    
+    private bool _onWinningPath = false;
+
+    private void Start()
+    {
+        StartCoroutine(ShowTitle(delay));
+    }
+
     private void Update()
     {
         if (_isPaused)
@@ -65,13 +76,23 @@ public class Game : MonoBehaviour
     {
         var itemAttributes = item.getAttributes();
         if (itemAttributes == null) return;
+
+        PlayWinCutsceneIfWon(item);
+        
         CheckIfTextProvided(itemAttributes);
         CheckIfCanPickUp(item);
         
         if (!inventory.NothingSelected())
         {
             CheckIfItemCombinationExists(item, inventory.GetSelectedItem());
+        }
+    }
 
+    private void PlayWinCutsceneIfWon(Item item)
+    {
+        if (_onWinningPath && item.getAttributes().id == 10)
+        {
+            SceneManager.LoadScene(1);
         }
     }
 
@@ -117,7 +138,26 @@ public class Game : MonoBehaviour
         if (!interactionMap.ContainsKey(inventoryItem.getAttributes().id)) return false;
         EnableTextDisplay(interactionMap[inventoryItem.getAttributes().id]);
         currentItem.AdvanceState(inventoryItem.getAttributes().id);
+
+        CheckIfOnWinningPath(currentItem, inventoryItem);
+        
         _isPaused = true;
         return true;
+    }
+
+    private void CheckIfOnWinningPath(Item currentItem, Item inventoryItem)
+    {
+        if (inventoryItem.getAttributes().id == 3 && currentItem.getAttributes().id == 6)
+        {
+            Debug.Log("Setting win path");
+            _onWinningPath = true;
+        }
+    }
+
+    private IEnumerator ShowTitle(int delay)
+    {
+        yield return new WaitForSeconds(delay);
+        title.gameObject.SetActive(false);
+        yield return null;
     }
 }

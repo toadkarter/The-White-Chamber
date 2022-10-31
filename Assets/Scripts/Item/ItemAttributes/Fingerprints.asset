@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fingerprints
   m_EditorClassIdentifier: 
   image: {fileID: 0}
-  id: 0
+  id: 6
   interactions:
   - itemId: 3
     response: I place the sticky tape on the edge of the frame - my sticky tape now
