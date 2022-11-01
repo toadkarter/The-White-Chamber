@@ -42,7 +42,9 @@ The arrangement of the items, lighting and the general puzzles / game progressio
 
 **Code**
 
-The code was written by me in consultation with the excellent [Unity documentation](https://docs.unity.com/). Where external sources were used, or if there is anything particularly unusual or noteworthy used from the Unity documentation, such code snippets are clearly marked as comments within the code. I would like to give particularly strong thanks to the [Brackeys YouTube channel](https://www.youtube.com/c/Brackeys) and the [GameDev.tv](https://www.gamedev.tv/) website for being invaluable resources when learning the Unity Engine,
+The code was written by me in consultation with the excellent [Unity documentation](https://docs.unity.com/). Where external sources were used, or if there is anything particularly unusual or noteworthy used from the Unity documentation, such code snippets are clearly marked as comments within the code. I would like to give particularly strong thanks to the [Brackeys YouTube channel](https://www.youtube.com/c/Brackeys) and the [GameDev.tv](https://www.gamedev.tv/) website for being invaluable resources when learning the Unity Engine. 
+
+Finally, the JetBrains Rider IDE was very helpful in terms of suggesting interesting features of C# (such as LINQ) in order to make the code more readable.
 
 **3D Assets**
 
