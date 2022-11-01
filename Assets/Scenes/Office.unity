@@ -6477,6 +6477,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4996169816656570316, guid: d1dac9ddf39f31e46b79c74461a43a91, type: 3}
+      propertyPath: m_fontSize
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996169816656570316, guid: d1dac9ddf39f31e46b79c74461a43a91, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996169816656570319, guid: d1dac9ddf39f31e46b79c74461a43a91, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 550
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996169816656570319, guid: d1dac9ddf39f31e46b79c74461a43a91, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996169817479440136, guid: d1dac9ddf39f31e46b79c74461a43a91, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996169817479440136, guid: d1dac9ddf39f31e46b79c74461a43a91, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996169817479440136, guid: d1dac9ddf39f31e46b79c74461a43a91, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 108
+      objectReference: {fileID: 0}
     - target: {fileID: 4996169817806790688, guid: d1dac9ddf39f31e46b79c74461a43a91, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7080,9 +7108,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3809060010093370078}
+  - component: {fileID: 3495326884834105947}
   - component: {fileID: 8373831894569201118}
   - component: {fileID: 224710114018954665}
+  - component: {fileID: 3495326884834105946}
+  - component: {fileID: 3495326884834105944}
+  - component: {fileID: 3495326884834105945}
   m_Layer: 0
   m_Name: samoose
   m_TagString: Untagged
@@ -7090,20 +7121,60 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3809060010093370078
-Transform:
+--- !u!64 &3495326884834105944
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3495326884834105943}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1300002291311009042, guid: 02720e688a6985a44a0e20cc51bb92c4, type: 3}
+--- !u!114 &3495326884834105945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3495326884834105943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d79e657069589247b1d84d232c5e446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attributes: {fileID: 11400000, guid: e17f4078ba21dab42912089b11a26111, type: 2}
+--- !u!222 &3495326884834105946
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3495326884834105943}
+  m_CullTransparentMesh: 0
+--- !u!224 &3495326884834105947
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3495326884834105943}
   m_LocalRotation: {x: 0.114347644, y: 0.42379376, z: 0.71148294, w: 0.5487399}
-  m_LocalPosition: {x: -1.2813388, y: 0.8741555, z: 3.0402527}
+  m_LocalPosition: {x: 0, y: 0, z: 3.0402527}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -151.474, y: -134.393, z: -87.48401}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1.2813388, y: 0.8741555}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &4315761664603871229
 Transform:
   m_ObjectHideFlags: 0
