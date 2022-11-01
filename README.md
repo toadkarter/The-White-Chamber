@@ -2,7 +2,6 @@
 ![](./readme_images/whitechamber.JPG)
 
 ## **What is The White Chamber?**
----
 
 The White Chamber is a point-and-click adventure game in the style of early 2000s games such as [The Crimson Room](https://www.youtube.com/watch?v=PlhNR7hRHt4). 
 
@@ -17,7 +16,6 @@ There are many different types of interactions in the game, such as:
 These interactions happen when a ray is cast from the player camera and checked against the collision with the intersected object - if the object is an item and the player clicks the mouse button, some sort of interaction will occur.
 
 ## **Game Controls**
----
 
 * **WSAD + Mouse Look**: Movement
 * **Click**: Interact with item
@@ -26,11 +24,10 @@ These interactions happen when a ray is cast from the player camera and checked 
 To combine an item in your inventory with an existing item, make sure that you have the item active in the inventory panel and click the item that you wish to combine it with.
 
 ## **Video Demo**
----
+
 A video demo will be added to this GitHub repository once it is made public.
 
 ## **Future Work**
----
 
 I would love to add more items and puzzles to the game, and perhaps adding some funny messages for item interactions not necessarily on the critical path for game progression. 
 
@@ -38,7 +35,6 @@ In terms of code, it would be great to refactor the code relating to Items to ma
 
 
 ## **Sources and References**
----
 
 **General**
 
@@ -57,7 +53,5 @@ For the 3D assets comprising the game world aside from the video game figurines,
 * [Vintage Sci-Fi Lounge Elevator Music](https://www.youtube.com/watch?v=l-gpQks9MME)
 * [The Backrooms Ambience](https://www.youtube.com/watch?v=QoHScO6NaEw)
 * [Van Sliding Door Sound Effect](https://www.youtube.com/watch?v=QOjnc8ldnS8)
-
-
 
 **END**
