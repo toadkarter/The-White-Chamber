@@ -38,7 +38,7 @@ In terms of code, it would be great to refactor the code relating to Items to ma
 
 **General**
 
-The arrangement of the items, lighting, interactions of the player with the game world and the general puzzles / game progression are my own personal work. The video game figurines (Shovel Knight and Samus) that are part of the game's puzzles were scanned in by me using photogrammetry.
+The arrangement of the items, lighting and the general puzzles / game progression are my own personal work. The video game figurines (Shovel Knight and Samus) that are part of the game's puzzles were scanned in by me using photogrammetry.
 
 **Code**
 
