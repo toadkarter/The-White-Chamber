@@ -152,6 +152,7 @@ public class Game : MonoBehaviour
         }
     }
 
+    // Source: https://docs.unity3d.com/ScriptReference/WaitForSeconds.html
     private IEnumerator ShowTitle(int delay)
     {
         yield return new WaitForSeconds(delay);

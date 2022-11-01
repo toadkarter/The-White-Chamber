@@ -2,7 +2,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// Source: https://docs.unity3d.com/ScriptReference/WaitForSeconds.html
 public class EndCutscene : MonoBehaviour
 {
     [SerializeField] private int delay = 5;
@@ -13,6 +12,7 @@ public class EndCutscene : MonoBehaviour
 
     }
 
+    // Source: https://docs.unity3d.com/ScriptReference/WaitForSeconds.html
     private IEnumerator ReturnToStart(int delay)
     {
         yield return new WaitForSeconds(delay);
