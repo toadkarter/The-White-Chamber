@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -92,6 +91,7 @@ public class LightPuzzle : MonoBehaviour
         return _onCorrectPath && AllLampsOn();
     }
 
+    // Source: https://docs.unity3d.com/ScriptReference/Vector3.MoveTowards.html
     private void MoveBookshelf()
     {
         float step = bookShelfSpeed * Time.deltaTime;

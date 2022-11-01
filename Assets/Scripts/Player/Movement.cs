@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+// Source: https://www.youtube.com/watch?v=_QajrabyTJc&t=853s
 public class Movement : MonoBehaviour
 {
     private CharacterController _playerBody = null;

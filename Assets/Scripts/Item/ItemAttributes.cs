@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
+// Source: https://docs.unity3d.com/Manual/class-ScriptableObject.html
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/ItemAttributes", order = 1)]
 public class ItemAttributes : ScriptableObject
 {

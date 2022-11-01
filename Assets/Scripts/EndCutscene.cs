@@ -1,8 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Source: https://docs.unity3d.com/ScriptReference/WaitForSeconds.html
 public class EndCutscene : MonoBehaviour
 {
     [SerializeField] private int delay = 5;
