@@ -18,7 +18,7 @@ MonoBehaviour:
   - itemId: 3
     response: I place the sticky tape on the base of the figurine - my sticky tape
       now has some fingerprints on it.
-  examineMessage: It's a figurine from a popular video game - it fills you with a
-    sense of nostalgia. It seems to be a little greasy.
+  examineMessage: It's a figurine from a popular video game - it fills me with a
+    sense of nostalgia. The base seems to be a little greasy.
   canPickUp: 0
   stateAdvancerIds: 
