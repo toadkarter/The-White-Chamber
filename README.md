@@ -25,7 +25,7 @@ To combine an item in your inventory with an existing item, make sure that you h
 
 ## **Video Demo**
 
-A video demo will be added to this GitHub repository once it is made public.
+A demo showcasing the gameplay can be seen [at this link](https://www.youtube.com/watch?v=nsmZH-oyGr8).
 
 ## **Future Work**
 
